@@ -1,0 +1,71 @@
+{% extends 'todo_app/base.html' %}
+{% block content %}
+    <div class="main">
+        
+        <div class="mytask">
+            <div class="first">
+                <div>
+                    <h1>Мои задачи</h1>
+                    <p class="subtitle">Ср, 4 марта</p>
+                </div>
+                <div class="time">
+                    <h2>15<span class="muted">:27</span></h2>
+                    <p class="subtitle">СЕЙЧАС</p>
+                </div>
+            </div>
+                <div class="border_main">
+
+            </div>
+                <div class="down">
+                    <div class="complete">
+                    <p class="progress-label">Выполнено <span style="color: #D4622A">{{ notready_count }}</span> из <span style="color: #D4622A"> {{ all }}</span></p>
+                </div>
+                <div class="thoughts">
+                    <p style="margin-right: 10px;">✦</p>
+                    <div id = 'quote-container' name="цитата"> 
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="{% url 'add' %}" class="add_task" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Добавить новую задачу..." name="title" class="input" style="font-size: 18px;"> 
+            <button class="add_button" type="submit"> + </button>
+        </form>
+
+        <div class="tasks">
+            <div class="notdone">
+                <p class="section-label">В РАБОТЕ</p>
+                {% for task in ready %}
+                    <div class="notdonetask">
+                        <form action="{% url 'nolong' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="task_id" value="{{ task.id }}">
+                            <button style="margin-right: 10px;" class="ad" type="submit"></button>
+                        </form>
+                        <p style="font-size: 16px; margin-top: 5px;">{{task.title}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="done">
+                <p class="section-label">ВЫПОЛНЕНО</p>
+                {% for task in notready %}
+                    <div class="donetask">
+                        <form action="{% url 'long'%}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="task_id" value="{{task.id}}">
+                            <button style="margin-right: 10px;" class="rm" type="submit"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></button>
+                        </form>
+                        <p style="font-size: 16px; margin-top: 5px; text-decoration: line-through; text-decoration-color: #D4622A; text-decoration-thickness: 15%;"  >{{task.title}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        
+    </div>
+
+{% endblock %}

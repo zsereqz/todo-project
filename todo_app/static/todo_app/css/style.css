@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F0E8;
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #1A1A1A;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #1A1A1A;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #8A8478;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.muted {
+    color: #8A8478;
+}
+
+.time {
+    text-align: right;
+}
+
+
+
+
+.menu {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #FFFDF7;
+    border-bottom: 1.5px solid #E2DDD4;
+
+
+}
+
+.button1 {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    color: #8A8478;
+}
+
+.button1:hover {
+    color: #D4622A;
+    background: #F9E8DF;
+}
+
+.button2 {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    background-color: #D4622A;
+    color: #F9E8DF;
+    transition: 0.3s ease transform;
+
+}
+
+.button2:hover {
+    background-color: #D4622A;
+    transform: translateY(-2px);
+}
+
+
+/* выше норм работает */
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 64px; /* не трогать нормас работает */
+    
+}
+
+.mytask {
+    border: 1.5px solid #E2DDD4;
+    border-radius: 20px; /* не трогать нормас работает */
+    background-color: #FFFDF7;
+    width: 100%;       
+    max-width: 800px; /* ширина блока */ 
+}
+
+.first {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px 24px;
+}
+
+
+.border_main {
+    border-top: 1.5px solid #E2DDD4;
+    margin: 0 4.5% 0 4%;
+}
+
+
+.down {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.complete {
+    padding: 28px 32px 24px;
+}
+
+.thoughts {
+    padding: 28px 32px 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.progress-label {
+    color: #8A8478;
+}
+
+.add_task {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 0px 24px;
+    width: 100%;       
+    max-width: 800px; 
+    
+}
+
+.input {
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: #FFFDF7;
+    margin-right: 20px;
+    
+}
+
+.input::placeholder {
+  color: #8A8478;
+}
+
+
+.add_button {
+    background-color: #D4622A;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 28px;
+}
+
+
+.tasks {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+    padding: 0 32px 28px;
+    max-width: 862px; /* в работе выполнено двигать можно */
+    width: 100%;
+}
+
+.section-label {
+    color: #8A8478;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+}
+
+.notdonetask {
+    display: flex;
+    background: #FFFDF7;
+    border: 1.5px solid #E2DDD4;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    width: 100%;
+    align-items: center;
+}
+
+
+.donetask {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1.5px solid #E2DDD4;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #FFFDF7;
+    margin-top: 12px;
+    max-width: 100%;
+
+}
+
+.notdone, .done {
+    min-width: 0; /* главный фикс */
+}
+
+.notdonetask p, .donetask p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.ad {
+    margin-top: 2px;
+    width: 25px;           
+    height: 25px;          
+    border-radius: 50%;     
+    border: none;
+    padding: 0;
+    background: none;
+    border: 2px solid #E2DDD4;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.rm {
+    width: 25px;           
+    height: 25px;          
+    border-radius: 50%;     
+    border: none;
+    padding: 0;
+    background: none;
+    background-color: #D4622A;
+    border-color: #D4622A;
+    flex-shrink: 0;
+}
+
+.ad:hover {
+    border-color: #D4622A;
+    
+    border-radius: 50%;
+}
+
+.rm svg {
+    fill: white;
+}
+
+
+.for_text {
+    color: #8A8478;
+    word-break: break-word;
+
+}
+
+.for_span {
+    color: #D4622A;;
+}
