@@ -41,3 +41,9 @@ def long(request):
         Tasks.objects.filter(id=task_id).update(is_done=False)
 
     return redirect('main')
+
+
+
+def remove(request, id):
+    Tasks.objects.get(id=id).delete()
+    return redirect('main')

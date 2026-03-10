@@ -216,8 +216,27 @@ h2 {
 
 }
 
+.remove_task {
+    background: none; 
+    border: none;    
+    
+    font-size: 28px;  
+    cursor: pointer;  
+    color: #E2DDD4;      
+    line-height: 1;
+    opacity: 0;
+}
+
 .notdone, .done {
     min-width: 0; /* главный фикс */
+}
+
+.notdonetask:hover .remove_task {
+    opacity: 1;
+}
+
+.donetask:hover .remove_task {
+    opacity: 1;
 }
 
 .notdonetask p, .donetask p {

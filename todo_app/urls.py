@@ -7,4 +7,5 @@ urlpatterns = [
     
     path('nolong', views.nolong, name='nolong'),
     path('long', views.long, name='long'),
+    path('remove/<int:id>', views.remove, name='remove')
 ]

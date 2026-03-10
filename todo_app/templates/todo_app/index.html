@@ -40,12 +40,21 @@
                 <p class="section-label">В РАБОТЕ</p>
                 {% for task in ready %}
                     <div class="notdonetask">
-                        <form action="{% url 'nolong' %}" method="POST">
+                        <form action="{% url 'nolong' %}" method="POST" style="padding-top: 5px;">
                             {% csrf_token %}
                             <input type="hidden" name="task_id" value="{{ task.id }}">
                             <button style="margin-right: 10px;" class="ad" type="submit"></button>
+                            
                         </form>
                         <p style="font-size: 16px; margin-top: 5px;">{{task.title}}</p>
+                        <form action="{% url 'remove' task.id %}" method="POST" style="margin-left: auto;">
+                            {% csrf_token %}
+                            <button class="remove_task">
+                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                                    <path d="M1 1L9 9M9 1L1 9" stroke="#8A8478" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 {% endfor %}
             </div>
@@ -54,12 +63,22 @@
                 <p class="section-label">ВЫПОЛНЕНО</p>
                 {% for task in notready %}
                     <div class="donetask">
-                        <form action="{% url 'long'%}" method="POST">
+                        <form action="{% url 'long'%}" method="POST" style="padding-top: 5px;">
                             {% csrf_token %}
                             <input type="hidden" name="task_id" value="{{task.id}}">
-                            <button style="margin-right: 10px;" class="rm" type="submit"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></button>
+                            <button style="margin-right: 10px; " class="rm" type="submit"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></button>
                         </form>
                         <p style="font-size: 16px; margin-top: 5px; text-decoration: line-through; text-decoration-color: #D4622A; text-decoration-thickness: 15%;"  >{{task.title}}</p>
+                
+                       <form action="{% url 'remove' task.id %}" method="POST" style="margin-left: auto;">
+                            {% csrf_token %}
+                            <button class="remove_task" type="submit">
+                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                                    <path d="M1 1L9 9M9 1L1 9" stroke="#8A8478" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    
                     </div>
                 {% endfor %}
             </div>
