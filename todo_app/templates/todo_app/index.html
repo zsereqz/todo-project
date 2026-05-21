@@ -1,4 +1,5 @@
 {% extends 'todo_app/base.html' %}
+{% load static %}
 {% block content %}
     <div class="main">
         
@@ -85,5 +86,5 @@
 
         
     </div>
-
+    <script src="{% static 'todo_app/js/time.js' defer %}"> </script>
 {% endblock %}
